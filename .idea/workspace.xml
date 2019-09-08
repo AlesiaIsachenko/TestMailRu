@@ -17,7 +17,7 @@
   </component>
   <component name="ProjectId" id="1QIFkBIQ3uTgZWDAJ30WkjEZWWA" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lesson5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -36,12 +36,12 @@
       <module name="TestMailRu" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.Isachenko.TestMailRu.*" />
+          <option name="PATTERN" value="by.Isachenko.TestMailRu.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.Isachenko.TestMailRu" />
-      <option name="MAIN_CLASS_NAME" value="by.Isachenko.TestMailRu.CreateNewLetterTest" />
+      <option name="PACKAGE_NAME" value="by.Isachenko.TestMailRu.tests" />
+      <option name="MAIN_CLASS_NAME" value="by.Isachenko.TestMailRu.tests.CreateNewLetterTest" />
       <option name="METHOD_NAME" value="CreateNewLetterTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">

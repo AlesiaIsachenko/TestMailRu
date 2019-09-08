@@ -1,22 +1,12 @@
-package by.Isachenko.TestMailRu;
+package by.Isachenko.TestMailRu.tests;
 
-import by.Isachenko.TestMailRu.pages.LoginPage;
-import by.Isachenko.TestMailRu.pages.MailPage;
-import by.Isachenko.TestMailRu.pages.NewLetterPage;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import static org.junit.Assert.assertTrue;
 
-public class CreateNewLetterTest extends TestBase{
+public class CreateNewLetterTest extends TestBase {
     @Test
     public void CreateNewLetterTest() {
-        LoginPage loginPage = new LoginPage(driver, wait);
-        loginPage.goToLoginPage();
-        MailPage mailPage = loginPage.loginAs("testLab2019", "Cjkysirj15!");
-
-        NewLetterPage newLetterPage = mailPage.submitCreateNewLetter();
-        newLetterPage.typeTo("testLab2019@mail.ru");
-        newLetterPage.typeTopic("Tatyana's letter to Onegin.");
+        app.navigateToLoginPage();
+        app.loginAs("testLab2019", "Cjkysirj15!");
         String text = "Я к вам пишу — чего же боле?\n" +
                 "Что я могу ещё сказать?\n" +
                 "Теперь, я знаю, в вашей воле\n" +
@@ -38,10 +28,9 @@ public class CreateNewLetterTest extends TestBase{
                 "В глуши, в деревне всё вам скучно,\n" +
                 "А мы... ничем мы не блестим,\n" +
                 "Хоть вам и рады простодушно.";
-        newLetterPage.typeBodyText(text);
-        newLetterPage.submitSendLetter();
-        assertTrue(isElementPresent(By.cssSelector(".layer-sent-page .button2__txt")));
-        newLetterPage.submitMail();
+        app.createNewLetter("testLab2019@mail.ru", "Tatyana's letter to Onegin.", text);
+        app.checkSentPage();
+        app.goToMailPage();
         System.out.println("Test is over.");
     }
 }
