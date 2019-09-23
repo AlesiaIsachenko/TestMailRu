@@ -1,14 +1,8 @@
 package by.Isachenko.TestMailRu.pages;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
 
 public class NewLetterPage extends Page{
     @FindBy(css=".compose-windows .container--ItIg4 .container--H9L5q.size_s--3_M-_")
@@ -28,7 +22,6 @@ public class NewLetterPage extends Page{
 
     public NewLetterPage(WebDriver driver, WebDriverWait wait){
         super(driver, wait);
-        PageFactory.initElements(driver, this);
     }
 
     public NewLetterPage typeTo(String to){
@@ -42,16 +35,9 @@ public class NewLetterPage extends Page{
         return this;
     }
 
-    public void copyText(String text){
-        StringSelection stringSelection = new StringSelection(text);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
-    }
-
     public NewLetterPage typeBodyText(String text){
         editTableEl.clear();
-        copyText(text);
-        editTableEl.sendKeys(Keys.LEFT_CONTROL + "v");
+        editTableEl.sendKeys(text);
         System.out.println("Info: Set Text.");
         return this;
     }
@@ -62,9 +48,4 @@ public class NewLetterPage extends Page{
         return this;
     }
 
-    public void submitMail(){
-        hrefMailEl.click();
-        wait.until(ExpectedConditions.titleIs("Входящие - Почта Mail.ru"));
-        System.out.println("Info: Letter was sent.");
-    }
 }

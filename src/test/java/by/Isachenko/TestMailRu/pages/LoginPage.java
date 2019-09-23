@@ -1,10 +1,8 @@
 package by.Isachenko.TestMailRu.pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends Page{
@@ -25,7 +23,6 @@ public class LoginPage extends Page{
 
     public LoginPage(WebDriver driver, WebDriverWait wait){
         super(driver, wait);
-        PageFactory.initElements(driver, this);
     }
     public LoginPage checkExit(){
         if (areElementsPresent(exitdButtonLocator)){
@@ -57,5 +54,4 @@ public class LoginPage extends Page{
         }
         System.out.println("Info: Click -- Войти.");
     }
-
 }
