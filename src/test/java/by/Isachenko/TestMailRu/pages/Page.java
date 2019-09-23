@@ -29,7 +29,7 @@ public class Page {
     public void submitMail(){
         hrefMailEl.click();
         wait.until(ExpectedConditions.titleIs("Входящие - Почта Mail.ru"));
-        System.out.println("Info: Letter was sent.");
+        System.out.println("Info: Went to the main page.");
     }
 
     public boolean areElementsPresent(By locator) {

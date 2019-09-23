@@ -52,6 +52,6 @@ public class LoginPage extends Page{
         }else{
             loginButtonEl.click();
         }
-        System.out.println("Info: Click -- Войти.");
+        System.out.println("Info: Click -- Log in.");
     }
 }

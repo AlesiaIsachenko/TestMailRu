@@ -12,6 +12,7 @@ public class DeleteLetterTest extends TestBase{
         app.checkSentPage();
         app.goToMailPage();
         app.deleteLetter(0);
+        System.out.println("Test is over.");
         //app.timeSleep(2);
     }
 }

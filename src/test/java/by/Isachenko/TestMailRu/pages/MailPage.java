@@ -26,12 +26,12 @@ public class MailPage extends Page{
         WebElement element = driver.findElement(appLoaderLocator);
         wait.until(ExpectedConditions.invisibilityOf(element));
         createNewLetterEl.click();
-        System.out.println("Info: Click -- Написать письмо.");
+        System.out.println("Info: Click -- New letter.");
     }
 
     public void letterClick(int i){
         lettersList.get(i).click();
-        System.out.println("Info: Открыли письмо.");
+        System.out.println("Info: Opened the letter");
     }
 
     public int getNumOfLetters(){

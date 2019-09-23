@@ -1,4 +1,5 @@
 package by.Isachenko.TestMailRu.pages;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,8 @@ public class NewLetterPage extends Page{
 
     @FindBy(css=".x-ph__link_selected")
     public WebElement hrefMailEl;
+
+    By sendLetterLocator = By.cssSelector("[title=Отправить]");
 
     public NewLetterPage(WebDriver driver, WebDriverWait wait){
         super(driver, wait);
@@ -43,8 +46,10 @@ public class NewLetterPage extends Page{
     }
 
     public NewLetterPage submitSendLetter(){
-        sendLetterEl.click();
-        System.out.println("Info: Click -- Отправить.");
+        if (areElementsPresent(sendLetterLocator)){
+            sendLetterEl.click();
+            System.out.println("Info: Click -- Send.");
+        }
         return this;
     }
 

@@ -74,6 +74,7 @@ public class Application {
         openLetterPage.deleteLetter();
         openLetterPage.submitMail();
         assertTrue((mailPage.getNumOfLetters()+1)==initialNumOfLetters);
+        out.println("Info: Letter has been deleted successfully.");
     }
 
     public void timeSleep(int sec) {
