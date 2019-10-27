@@ -4,9 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Class NewLetterPage extends Page
+ */
 public class NewLetterPage extends Page{
     /** field - To */
     @FindBy(css="[data-name=to] [type=text]")

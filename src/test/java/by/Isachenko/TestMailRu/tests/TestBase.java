@@ -6,6 +6,8 @@ public class TestBase {
     public static ThreadLocal<Application> tlApp = new ThreadLocal<>();
     public Application app;
 
+
+
     @BeforeEach
     public  void start() {
         if (tlApp.get() != null) {

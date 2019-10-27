@@ -7,6 +7,10 @@ import java.util.stream.Stream;
 
 public class CreateNewLetterTest extends TestBase {
 
+    /**
+     * method -- test, create new letter
+     *  @param args - String array ()
+     */
     //@ParameterizedTest
     //@MethodSource("stringArrayProvider")
     public void CreateNewLetterTest2(String [] args) {

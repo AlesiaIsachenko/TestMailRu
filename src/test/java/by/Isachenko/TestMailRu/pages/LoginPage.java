@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+/**
+ * Class LoginPage extends Page
+ */
 public class LoginPage extends Page{
     /** button - Password */
     @FindBy(css="form [value='Ввести пароль']")
@@ -40,7 +43,10 @@ public class LoginPage extends Page{
         super(driver);
     }
 
-
+    /**
+     * method -- click Exit (if this element is on the page)
+     * @return -- LoginPage
+     */
     public LoginPage checkExit(){
         if (areElementsPresent(exitdButtonLocator)){
             exit.click();
@@ -48,6 +54,11 @@ public class LoginPage extends Page{
         return this;
     }
 
+    /**
+     * method -- enter login Name
+     * @param loginName - login name
+     * @return -- LoginPage
+     */
     public LoginPage typeLogin(String loginName){
         loginEl.clear();
         loginEl.sendKeys(loginName);
@@ -55,6 +66,11 @@ public class LoginPage extends Page{
         return this;
     }
 
+    /**
+     * method -- enter password
+     * @param password - password
+     * @return -- LoginPage
+     */
     public LoginPage typePassword(String password){
         if (areElementsPresent(passwordButtonLocator)){
             WebElement form = driver.findElement(By.cssSelector("form#auth"));
@@ -66,6 +82,9 @@ public class LoginPage extends Page{
         return this;
     }
 
+    /**
+     * method -- click button LogIn
+     */
     public void submitLogin(){
         if (areElementsPresent(passwordButtonLocator)){
             passwordButtonEl.click();

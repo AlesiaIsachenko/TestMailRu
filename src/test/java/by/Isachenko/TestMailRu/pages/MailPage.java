@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+/**
+ * Class MailPage extends Page
+ */
 public class MailPage extends Page{
     /** button - create New Letter */
     @FindBy(css="[title*='Написать письмо']")
