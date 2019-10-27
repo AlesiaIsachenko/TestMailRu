@@ -1,36 +1,36 @@
 package by.Isachenko.TestMailRu.tests;
-
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
+import java.util.stream.Stream;
 
 public class CreateNewLetterTest extends TestBase {
-    @Test
-    public void CreateNewLetterTest() {
+
+    @ParameterizedTest
+    @MethodSource("stringArrayProvider")
+    public void CreateNewLetterTest2(String [] args) {
         app.navigateToLoginPage();
-        app.loginAs("testLab2019", "Cjkysirj15!");
-        String text = "Я к вам пишу — чего же боле?\n" +
-                "Что я могу ещё сказать?\n" +
-                "Теперь, я знаю, в вашей воле\n" +
-                "Меня презреньем наказать.\n" +
-                "Но вы, к моей несчастной доле\n" +
-                "Хоть каплю жалости храня,\n" +
-                "Вы не оставите меня.\n" +
-                "Сначала я молчать хотела;\n" +
-                "Поверьте: моего стыда\n" +
-                "Вы не узнали б никогда,\n" +
-                "Когда б надежду я имела\n" +
-                "Хоть редко, хоть в неделю раз\n" +
-                "В деревне нашей видеть вас,\n" +
-                "Чтоб только слышать ваши речи,\n" +
-                "Вам слово молвить, и потом\n" +
-                "Всё думать, думать об одном\n" +
-                "И день и ночь до новой встречи.\n" +
-                "Но, говорят, вы нелюдим;\n" +
-                "В глуши, в деревне всё вам скучно,\n" +
-                "А мы... ничем мы не блестим,\n" +
-                "Хоть вам и рады простодушно.";
-        app.createNewLetter("testLab2019@mail.ru", "Tatyana's letter to Onegin.", text);
+        app.loginToTestAccount();
+        app.createNewLetter(args[0], args[1], args[2]);
         app.checkSentPage();
         app.goToMailPage();
         System.out.println("Test is over.");
     }
+
+    static Stream<Arguments> stringArrayProvider() {
+        return Stream.of(Arguments.of((Object) new String[]{"testLab2019@mail.ru", "Стихи про осень.", "Унылая пора! Очей очарованье!"}));
+    }
+
+    @ParameterizedTest
+    @CsvSource("testLab2019@mail.ru, Стихи про осень., Унылая пора! Очей очарованье!")
+    public void CreateNewLetterTest(String fieldTo, String subject, String text) {
+        app.navigateToLoginPage();
+        app.loginToTestAccount();
+        app.createNewLetter(fieldTo, subject, text);
+        app.checkSentPage();
+        app.goToMailPage();
+        System.out.println("Test is over.");
+    }
+
 }

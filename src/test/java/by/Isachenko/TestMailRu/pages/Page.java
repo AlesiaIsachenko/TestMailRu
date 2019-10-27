@@ -11,31 +11,53 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.NoSuchElementException;
 
 public class Page {
+    /** attribute - WebDriver */
     protected WebDriver driver;
+
+    /** attribute - WebDriverWait */
     protected WebDriverWait wait;
 
-    @FindBy(css=".x-ph__link_selected")
+    /** Link g_mail */
+    @FindBy(css="#ph_mail")
     public WebElement hrefMailEl;
 
+    /**Default constructor */
     public Page() {
     }
 
-    public Page(WebDriver driver, WebDriverWait wait) {
+    /**
+     * Parameterized constructor*
+     * @param driver - WebDriver
+     */
+    public Page(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 10);
+        this.wait = new WebDriverWait(driver, 4);
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * method - go to main page "Входящие - Почта Mail.ru"
+     */
     public void submitMail(){
         hrefMailEl.click();
-        wait.until(ExpectedConditions.titleIs("Входящие - Почта Mail.ru"));
+        wait.until(ExpectedConditions.titleContains("Входящие - Почта Mail.ru"));
         System.out.println("Info: Went to the main page.");
     }
 
+    /**
+     * method determines the presence of elements on the page
+     * @return true - list size > 0
+     * @return false - list size = 0
+     */
     public boolean areElementsPresent(By locator) {
         return driver.findElements(locator).size() > 0;
     }
 
+    /**
+     * method determines the presence of an element on the page
+     * @return true - the element is on the page
+     * @return false - the element is not on the page
+     */
     public boolean isElementPresent(By locator) {
         try {
             driver.findElement(locator);

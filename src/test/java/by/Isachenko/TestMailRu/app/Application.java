@@ -1,32 +1,26 @@
 package by.Isachenko.TestMailRu.app;
-
 import by.Isachenko.TestMailRu.pages.LoginPage;
 import by.Isachenko.TestMailRu.pages.MailPage;
 import by.Isachenko.TestMailRu.pages.NewLetterPage;
-import by.Isachenko.TestMailRu.pages.OpenLetterPage;
 import by.Isachenko.TestMailRu.tests.MyListener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
-
 import static java.lang.System.out;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Application {
-
     private EventFiringWebDriver driver;
-    private WebDriverWait wait;
 
     private MailPage mailPage;
     private LoginPage loginPage;
     private NewLetterPage newLetterPage;
-    private OpenLetterPage openLetterPage;
 
     private String baseUrl = "https://mail.ru";
+    private String testAccoiunt [] ={"testLab2019", "Cjkysirj15!"};
 
     By sentPageMessage = By.cssSelector(".layer-sent-page .button2__txt");
 
@@ -36,11 +30,9 @@ public class Application {
         //driver = new EventFiringWebDriver(new EdgeDriver());
         driver.register(new MyListener());
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 10);
-        mailPage = new MailPage(driver, wait);
-        loginPage = new LoginPage(driver, wait);
-        newLetterPage = new NewLetterPage(driver, wait);
-        openLetterPage = new OpenLetterPage(driver, wait);
+        mailPage = new MailPage(driver);
+        loginPage = new LoginPage(driver);
+        newLetterPage = new NewLetterPage(driver);
     }
 
     public void quit() {
@@ -56,6 +48,10 @@ public class Application {
         loginPage.typeLogin(loginName).typePassword(password).submitLogin();
     }
 
+    public void loginToTestAccount(){
+        loginAs(testAccoiunt[0], testAccoiunt[1]);
+    }
+
     public void createNewLetter(String to, String topic, String text){
         mailPage.submitCreateNewLetter();
         newLetterPage.typeTo(to).typeTopic(topic).typeBodyText(text).submitSendLetter();
@@ -66,15 +62,6 @@ public class Application {
     }
     public void goToMailPage(){
         newLetterPage.submitMail();
-    }
-
-    public void deleteLetter(int i){
-        int initialNumOfLetters = mailPage.getNumOfLetters();
-        mailPage.letterClick(i);
-        openLetterPage.deleteLetter();
-        openLetterPage.submitMail();
-        assertTrue((mailPage.getNumOfLetters()+1)==initialNumOfLetters);
-        out.println("Info: Letter has been deleted successfully.");
     }
 
     public void timeSleep(int sec) {

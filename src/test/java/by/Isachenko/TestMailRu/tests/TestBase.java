@@ -1,14 +1,14 @@
 package by.Isachenko.TestMailRu.tests;
-
 import by.Isachenko.TestMailRu.app.Application;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
     public static ThreadLocal<Application> tlApp = new ThreadLocal<>();
     public Application app;
 
-    @Before
-    public void start() {
+    @BeforeEach
+    public  void start() {
         if (tlApp.get() != null) {
             app = tlApp.get();
             return;

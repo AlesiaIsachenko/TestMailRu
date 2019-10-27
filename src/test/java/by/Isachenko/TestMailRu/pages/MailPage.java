@@ -18,8 +18,8 @@ public class MailPage extends Page{
 
     By appLoaderLocator = By.cssSelector("#app-loader");
 
-    public MailPage(WebDriver driver, WebDriverWait wait){
-        super(driver, wait);
+    public MailPage(WebDriver driver){
+        super(driver);
     }
 
     public void submitCreateNewLetter(){

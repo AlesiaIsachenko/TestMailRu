@@ -3,32 +3,36 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NewLetterPage extends Page{
-    @FindBy(css=".compose-windows .container--ItIg4 .container--H9L5q.size_s--3_M-_")
-    public WebElement toEl;
+    /** field - To */
+    @FindBy(css="[data-name=to] [type=text]")
+    public WebElement fieldToEl;
 
-    @FindBy(css=".compose-windows .subject__container--HWnat .container--H9L5q.size_s--3_M-_")
+    /** field - Topic */
+    @FindBy(css="[name=Subject]")
     public WebElement topicEl;
 
+    /** text input field */
     @FindBy(css=".cke_editable")
     public WebElement editTableEl;
 
+    /** button - Send */
     @FindBy(css="[title=Отправить]")
     public WebElement sendLetterEl;
 
-    @FindBy(css=".x-ph__link_selected")
-    public WebElement hrefMailEl;
-
     By sendLetterLocator = By.cssSelector("[title=Отправить]");
 
-    public NewLetterPage(WebDriver driver, WebDriverWait wait){
-        super(driver, wait);
+    /**
+     * Parameterized constructor*
+     * @param driver - WebDriver
+     */
+    public NewLetterPage(WebDriver driver){
+        super(driver);
     }
 
     public NewLetterPage typeTo(String to){
-        toEl.sendKeys(to);
+        fieldToEl.sendKeys(to);
         System.out.println("Info: Set To -- " + to + ".");
         return this;
     }

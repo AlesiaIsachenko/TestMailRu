@@ -6,30 +6,32 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends Page{
-    @FindBy(css="[value='Ввести пароль']")
+    @FindBy(css="form [value='Ввести пароль']")
     public WebElement passwordButtonEl;
 
     @FindBy(css="[value='Войти']")
     public WebElement loginButtonEl;
 
-    @FindBy(css="[id = 'mailbox:password']")
+    @FindBy(css="[id='mailbox:password']")
     public WebElement passwordEl;
 
-    @FindBy(css="[id = 'mailbox:login']")
+    @FindBy(css="[id='mailbox:login']")
     public WebElement loginEl;
 
-    By passwordButtonLocator = By.cssSelector("[value='Ввести пароль']");
+    By passwordButtonLocator = By.cssSelector(".mailbox__body [value='Ввести пароль']");
     By exitdButtonLocator = By.cssSelector("[title=Выход]");
 
-    public LoginPage(WebDriver driver, WebDriverWait wait){
-        super(driver, wait);
+    public LoginPage(WebDriver driver){
+        super(driver);
     }
+
     public LoginPage checkExit(){
         if (areElementsPresent(exitdButtonLocator)){
             driver.findElement(exitdButtonLocator).click();
         }
         return this;
     }
+
     public LoginPage typeLogin(String loginName){
         loginEl.clear();
         loginEl.sendKeys(loginName);
@@ -39,7 +41,9 @@ public class LoginPage extends Page{
 
     public LoginPage typePassword(String password){
         if (areElementsPresent(passwordButtonLocator)){
-            passwordButtonEl.click();
+            WebElement form = driver.findElement(By.cssSelector("form#auth"));
+            form.findElement(By.cssSelector("[value='Ввести пароль']")).click();
+            //passwordButtonEl.click();
         }
         passwordEl.sendKeys(password);
         System.out.println("Info: Set Password -- " + password + ".");

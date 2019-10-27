@@ -18,6 +18,9 @@
   <component name="ProjectId" id="1QIFkBIQ3uTgZWDAJ30WkjEZWWA" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -31,7 +34,55 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DeleteLetterTest.DeleteLetterTest">
+  <component name="RunManager" selected="JUnit.CreateNewLetterTest.CreateNewLetterTest (3)">
+    <configuration name="CreateNewLetterTest.CreateNewLetterTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TestMailRu" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.Isachenko.TestMailRu.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.Isachenko.TestMailRu.tests" />
+      <option name="MAIN_CLASS_NAME" value="by.Isachenko.TestMailRu.tests.CreateNewLetterTest" />
+      <option name="METHOD_NAME" value="CreateNewLetterTest(java.util.List)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateNewLetterTest.CreateNewLetterTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TestMailRu" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.Isachenko.TestMailRu.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.Isachenko.TestMailRu.tests" />
+      <option name="MAIN_CLASS_NAME" value="by.Isachenko.TestMailRu.tests.CreateNewLetterTest" />
+      <option name="METHOD_NAME" value="CreateNewLetterTest([Ljava.lang.String;)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateNewLetterTest.CreateNewLetterTest (3)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TestMailRu" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="by.Isachenko.TestMailRu.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="by.Isachenko.TestMailRu.tests" />
+      <option name="MAIN_CLASS_NAME" value="by.Isachenko.TestMailRu.tests.CreateNewLetterTest" />
+      <option name="METHOD_NAME" value="CreateNewLetterTest(java.lang.String,java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CreateNewLetterTest.CreateNewLetterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TestMailRu" />
       <extension name="coverage">
@@ -48,7 +99,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeleteLetterTest.DeleteLetterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateNewLetterTest.CreateNewLetterTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TestMailRu" />
       <extension name="coverage">
         <pattern>
@@ -57,8 +108,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by.Isachenko.TestMailRu.tests" />
-      <option name="MAIN_CLASS_NAME" value="by.Isachenko.TestMailRu.tests.DeleteLetterTest" />
-      <option name="METHOD_NAME" value="DeleteLetterTest" />
+      <option name="MAIN_CLASS_NAME" value="by.Isachenko.TestMailRu.tests.CreateNewLetterTest" />
+      <option name="METHOD_NAME" value="CreateNewLetterTest2(java.lang.String,java.lang.String,java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -66,7 +117,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DeleteLetterTest.DeleteLetterTest" />
+        <item itemvalue="JUnit.CreateNewLetterTest.CreateNewLetterTest (3)" />
+        <item itemvalue="JUnit.CreateNewLetterTest.CreateNewLetterTest2" />
+        <item itemvalue="JUnit.CreateNewLetterTest.CreateNewLetterTest (2)" />
+        <item itemvalue="JUnit.CreateNewLetterTest.CreateNewLetterTest (1)" />
         <item itemvalue="JUnit.CreateNewLetterTest.CreateNewLetterTest" />
       </list>
     </recent_temporary>
