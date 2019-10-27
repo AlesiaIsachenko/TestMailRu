@@ -1,40 +1,39 @@
 package by.Isachenko.TestMailRu.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.List;
 
 public class MailPage extends Page{
+    /** button - create New Letter */
     @FindBy(css="[title*='Написать письмо']")
     public WebElement createNewLetterEl;
 
-    @FindBy(css="a[tabindex]")
-    public List<WebElement> lettersList;
+    /** element - filter */
+    @FindBy(css="[title=\"Фильтр по письмам\"]")
+    public WebElement filterEl;
 
-    By appLoaderLocator = By.cssSelector("#app-loader");
-
+    /**
+     * Parameterized constructor*
+     * @param driver - WebDriver
+     */
     public MailPage(WebDriver driver){
         super(driver);
     }
 
+    /**
+     * method -- click create New Letter
+     */
     public void submitCreateNewLetter(){
-        WebElement element = driver.findElement(appLoaderLocator);
-        wait.until(ExpectedConditions.invisibilityOf(element));
         createNewLetterEl.click();
         System.out.println("Info: Click -- New letter.");
     }
 
-    public void letterClick(int i){
-        lettersList.get(i).click();
-        System.out.println("Info: Opened the letter");
-    }
-
-    public int getNumOfLetters(){
-        return lettersList.size();
+    /**
+     * method -- waiting page loading (waiting the presence of a unique element)
+     */
+    public void waitLoadPage(){
+        wait.until(ExpectedConditions.visibilityOf(filterEl));
     }
 }

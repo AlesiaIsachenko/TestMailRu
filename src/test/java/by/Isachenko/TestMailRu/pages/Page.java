@@ -21,6 +21,11 @@ public class Page {
     @FindBy(css="#ph_mail")
     public WebElement hrefMailEl;
 
+    /** element - filter */
+    @FindBy(css="[title=\"Фильтр по письмам\"]")
+    public WebElement filterEl;
+
+
     /**Default constructor */
     public Page() {
     }
@@ -38,9 +43,9 @@ public class Page {
     /**
      * method - go to main page "Входящие - Почта Mail.ru"
      */
-    public void submitMail(){
+    public final void submitMail(){
         hrefMailEl.click();
-        wait.until(ExpectedConditions.titleContains("Входящие - Почта Mail.ru"));
+        wait.until(ExpectedConditions.visibilityOf(filterEl));
         System.out.println("Info: Went to the main page.");
     }
 

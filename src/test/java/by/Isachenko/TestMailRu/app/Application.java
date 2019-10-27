@@ -1,16 +1,15 @@
 package by.Isachenko.TestMailRu.app;
+
 import by.Isachenko.TestMailRu.pages.LoginPage;
 import by.Isachenko.TestMailRu.pages.MailPage;
 import by.Isachenko.TestMailRu.pages.NewLetterPage;
 import by.Isachenko.TestMailRu.tests.MyListener;
-import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import java.util.concurrent.TimeUnit;
 import static java.lang.System.out;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Application {
     private EventFiringWebDriver driver;
@@ -20,9 +19,7 @@ public class Application {
     private NewLetterPage newLetterPage;
 
     private String baseUrl = "https://mail.ru";
-    private String testAccoiunt [] ={"testLab2019", "Cjkysirj15!"};
-
-    By sentPageMessage = By.cssSelector(".layer-sent-page .button2__txt");
+    private String testAccount [] ={"testLab2019", "Cjkysirj15!"};
 
     public Application() {
         driver = new EventFiringWebDriver(new ChromeDriver());
@@ -46,20 +43,20 @@ public class Application {
     public void loginAs(String loginName, String password){
         loginPage.checkExit();
         loginPage.typeLogin(loginName).typePassword(password).submitLogin();
+        mailPage.waitLoadPage();
     }
 
     public void loginToTestAccount(){
-        loginAs(testAccoiunt[0], testAccoiunt[1]);
+        loginAs(testAccount[0], testAccount[1]);
     }
 
-    public void createNewLetter(String to, String topic, String text){
+    public void createNewLetter(String fieldTo, String topic, String text){
         mailPage.submitCreateNewLetter();
-        newLetterPage.typeTo(to).typeTopic(topic).typeBodyText(text).submitSendLetter();
+        newLetterPage.waitLoadPage();
+        newLetterPage.typeTo(fieldTo).typeTopic(topic).typeBodyText(text).submitSendLetter();
+        newLetterPage.checkSendEmail();
     }
 
-    public void checkSentPage(){
-        assertTrue(mailPage.isElementPresent(sentPageMessage));
-    }
     public void goToMailPage(){
         newLetterPage.submitMail();
     }

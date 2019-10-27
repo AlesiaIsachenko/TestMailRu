@@ -1,6 +1,5 @@
 package by.Isachenko.TestMailRu.tests;
 import by.Isachenko.TestMailRu.app.Application;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
