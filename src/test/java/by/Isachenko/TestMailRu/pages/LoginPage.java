@@ -83,7 +83,7 @@ public class LoginPage extends Page{
     }
 
     /**
-     * method -- click button LogIn
+     * method -- click button Log In
      */
     public void submitLogin(){
         if (areElementsPresent(passwordButtonLocator)){

@@ -34,7 +34,7 @@ public class MailPage extends Page{
     }
 
     /**
-     * method -- waiting page loading (waiting the presence of a unique element)
+     * method -- waiting for the page to load (waiting for a unique element)
      */
     public void waitLoadPage(){
         wait.until(ExpectedConditions.visibilityOf(filterEl));

@@ -50,7 +50,7 @@ public class Application {
     }
 
     /**
-     * method -- go to Login Page
+     * method -- navigate to Login Page
      */
     public void navigateToLoginPage() {
         driver.navigate().to(baseUrl);
@@ -75,7 +75,7 @@ public class Application {
     }
 
     /**
-     * method -- create new letter, check send letter
+     * method -- create a new letter, check that the letter was sent
      * @param fieldTo - field To
      * @param topic - topic of the letter
      * @param text - text of the letter
@@ -92,13 +92,5 @@ public class Application {
      */
     public void goToMailPage(){
         newLetterPage.submitMail();
-    }
-
-    public void timeSleep(int sec) {
-        try {
-            TimeUnit.SECONDS.sleep(sec);
-        } catch (InterruptedException ex) {
-            out.println("Exception is occurred" + ex);
-        }
     }
 }

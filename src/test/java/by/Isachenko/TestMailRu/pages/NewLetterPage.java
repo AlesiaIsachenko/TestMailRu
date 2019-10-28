@@ -33,7 +33,7 @@ public class NewLetterPage extends Page{
     By sentPageMessage = By.cssSelector(".layer-sent-page .button2__txt");
 
     /**
-     * Parameterized constructor*
+     * Parameterized constructor
      * @param driver - WebDriver
      */
     public NewLetterPage(WebDriver driver){
@@ -41,7 +41,7 @@ public class NewLetterPage extends Page{
     }
 
     /**
-     * method -- enter data to field To
+     * method -- enter data in the To field
      * @param to - mail addressee
      * @return -- NewLetterPage
      */
@@ -52,7 +52,7 @@ public class NewLetterPage extends Page{
     }
 
     /**
-     * method -- enter data to field Topic
+     * method -- enter data in the Subject field
      * @param topic - topic of the letter
      * @return -- NewLetterPage
      */
@@ -64,7 +64,7 @@ public class NewLetterPage extends Page{
 
     /**
      * method -- enter data to letter body
-     * @param text - text of the letter
+     * @param text - message text
      * @return -- NewLetterPage
      */
     public NewLetterPage typeBodyText(String text){
@@ -75,7 +75,7 @@ public class NewLetterPage extends Page{
     }
 
     /**
-     * method -- click Send
+     * method -- click "Send"
      */
     public void submitSendLetter(){
         if (areElementsPresent(sendLetterLocator)){
@@ -85,14 +85,14 @@ public class NewLetterPage extends Page{
     }
 
     /**
-     * method -- check, if the letter was sent
+     * Method - check to see if an email has been sent
      */
     public void checkSendEmail(){
         assertTrue(isElementPresent(sentPageMessage));
     }
 
     /**
-     * method -- waiting page loading (waiting the presence of a unique element)
+     * method -- waiting for the page to load (waiting for a unique element)
      */
     public void waitLoadPage(){
         wait.until(ExpectedConditions.visibilityOf(sendLetterEl));
